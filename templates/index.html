@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The App About Nothing</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+
+  </head>
+    <body>
+      <div class="bg"></div>
+      <title>The App About Nothing</title>
+      <h3>The App About Nothing</h3>
+      <form action = "/result" method="POST">
+        <div class="slidecontainerjer">
+          <p>
+          <input name="jer_lines" type="range" min="1" max="100" value="50" class="sliderjer" id="myRangeJer">
+          Jerry Lines: <span id="demoJer"></span>
+          </p>
+        </div>
+
+        <div class="slidecontainergeo">
+          <p>
+          <input name="geo_lines" type="range" min="1" max="100" value="50" class="slidergeo" id="myRangeGeo">
+          George Lines: <span id="demoGeo"></span>
+          </p>
+        </div>
+
+
+        <div class="slidecontainerkra">
+          <p>
+          <input name="kra_lines" type="range" min="1" max="100" value="50" class="sliderkra" id="myRangeKra">
+          Kramer Lines: <span id="demoKra"></span>
+          </p>
+        </div>
+
+        <div class="slidecontainerela">
+          <p>
+          <input name="ela_lines" type="range" min="1" max="100" value="50" class="sliderela" id="myRangeela">
+          Elaine Lines: <span id="demoela"></span>
+          </p>
+        </div>
+
+        <script>
+          var sliderjer = document.getElementById("myRangeJer");
+          var outputjer = document.getElementById("demoJer");
+          outputjer.innerHTML = sliderjer.value;
+
+          sliderjer.oninput = function() {
+            outputjer.innerHTML = this.value;
+          }
+        </script>
+        <script>
+          var slidergeo = document.getElementById("myRangeGeo");
+          var outputgeo = document.getElementById("demoGeo");
+          outputgeo.innerHTML = slidergeo.value;
+
+          slidergeo.oninput = function() {
+            outputgeo.innerHTML = this.value;
+          }
+        </script>
+        <script>
+          var sliderkra = document.getElementById("myRangeKra");
+          var outputkra = document.getElementById("demoKra");
+          outputkra.innerHTML = sliderkra.value;
+
+          sliderkra.oninput = function() {
+            outputkra.innerHTML = this.value;
+          }
+        </script>
+        <script>
+          var sliderela = document.getElementById("myRangeela");
+          var outputela = document.getElementById("demoela");
+          outputela.innerHTML = sliderela.value;
+
+          sliderela.oninput = function() {
+            outputela.innerHTML = this.value;
+          }
+        </script>
+        <p><input type ="submit" value="submit"/></p>
+      </form>
+    </body>
+  </html>
+
+
+  <!-- <body>
+    <h3>Wealth-o-matic</h3>
+    <form action = "/result" method="POST">
+      <p>Select Age:<input name="age" type="number" value=28></p>
+      <p>Select Education:
+      <select name="education">
+        <option value="High School">High School</option>
+        <option value="Community College">Community College</option>
+        <option value="University" selected>University</option>
+        <option value="Masters">Masters</option>
+        <option value="PhD">PhD</option>
+      </select>
+      <p>Select Gender:<input name="gender" type="text" value="male"/> </p>
+      <p><input type ="submit" value="submit"/></p>
+    </form>
+  </body> -->

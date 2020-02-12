@@ -1,0 +1,177 @@
+.slidecontainerjer {
+  width: 100%;
+}
+
+.sliderjer {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 10px;
+  border-radius: 1px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.sliderjer:hover {
+  opacity: 1;
+}
+
+.sliderjer::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url();
+  cursor: pointer;
+}
+
+.sliderjer::-moz-range-thumb {
+  width: 50px;
+  height: 40px;
+  border: 0;
+  background: url(https://cdn.shopify.com/s/files/1/0094/8142/0858/products/Seinfeld_2400x.png?v=1572195311)no-repeat; background-size: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.slidecontainergeo {
+  width: 100%;
+}
+
+.slidergeo {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 10px;
+  border-radius: 1px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slidergeo:hover {
+  opacity: 1;
+}
+
+.slidergeo::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url(images/geo.png);
+  cursor: pointer;
+}
+
+.slidergeo::-moz-range-thumb {
+  width: 50px;
+  height: 40px;
+  border: 0;
+  background: url(https://i.kym-cdn.com/photos/images/newsfeed/000/364/858/c49.png)no-repeat; background-size: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.slidecontainerkra {
+  width: 100%;
+}
+
+.sliderkra {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 10px;
+  border-radius: 1px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.sliderkra:hover {
+  opacity: 1;
+}
+
+.sliderkra::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url(images/geo.png);
+  cursor: pointer;
+}
+
+.sliderkra::-moz-range-thumb {
+  width: 50px;
+  height: 40px;
+  border: 0;
+  background: url(https://spng.pngfly.com/20180428/fxq/kisspng-kramer-jerry-seinfeld-elaine-benes-george-costanza-5ae4e20802dc30.9924202615249495120117.jpg)no-repeat; background-size: 50%;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+.slidecontainerela {
+  width: 100%;
+}
+
+.sliderela {
+  -webkit-appearance: none;
+  width: 10%;
+  height: 10px;
+  border-radius: 1px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.sliderela:hover {
+  opacity: 1;
+}
+
+.sliderela::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url(images/geo.png);
+  cursor: pointer;
+}
+
+.sliderela::-moz-range-thumb {
+  width: 50px;
+  height: 40px;
+  border: 0;
+  background: url(https://www.pngkey.com/png/full/879-8794059_saturday-read-4-how-do-you-fit-seinfeld.png)no-repeat; background-size: 50%;
+  cursor: pointer;
+}
+html {
+  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F493%2Fthumb-1920-493640.jpg&f=1&nofb=1) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
