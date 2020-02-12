@@ -98,4 +98,4 @@ def generate():
     return render_template('generate.html', prediction=genlines)
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(host='0.0.0.0', debug=True, port=80)
