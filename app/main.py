@@ -1,34 +1,34 @@
-# import pickle
+import pickle
 
 from flask import Flask, render_template, request, jsonify
-# import pandas as pd
-# import numpy as np
+import pandas as pd
+import numpy as np
 # import tensorflow as tf
 
 app = Flask(__name__, template_folder='templates')
-# pipe = pickle.load(open('pipe.pkl', 'rb'))
+pipe = pickle.load(open('pipe.pkl', 'rb'))
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# @app.route('/result', methods=['POST'])
-# def result():
-#     args = request.form
-#     new = pd.DataFrame({
-#         'jer_sent': [args.get('jer_sent')],
-#         'geo_sent': [args.get('geo_sent')],
-#         'kra_sent': [args.get('kra_sent')],
-#         'ela_sent': [args.get('ela_sent')],
-#         'jer_lines': [args.get('jer_lines')],
-#         'geo_lines': [args.get('geo_lines')],
-#         'kra_lines': [args.get('kra_lines')],
-#         'ela_lines': [args.get('ela_lines')],
-#         'location': ['Jerry’s Apartment']
-#     })
-#     prediction = round(float(pipe.predict(new)[0]),1)
-#     return render_template('result.html', prediction=prediction)
+@app.route('/result', methods=['POST'])
+def result():
+    args = request.form
+    new = pd.DataFrame({
+        'jer_sent': [args.get('jer_sent')],
+        'geo_sent': [args.get('geo_sent')],
+        'kra_sent': [args.get('kra_sent')],
+        'ela_sent': [args.get('ela_sent')],
+        'jer_lines': [args.get('jer_lines')],
+        'geo_lines': [args.get('geo_lines')],
+        'kra_lines': [args.get('kra_lines')],
+        'ela_lines': [args.get('ela_lines')],
+        'location': ['Jerry’s Apartment']
+    })
+    prediction = round(float(pipe.predict(new)[0]),1)
+    return render_template('result.html', prediction=prediction)
 #
 # @app.route('/generate')
 # def generate():
