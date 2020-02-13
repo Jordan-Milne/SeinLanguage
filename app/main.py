@@ -1,12 +1,12 @@
-import pickle
+# import pickle
 
 from flask import Flask, render_template, request, jsonify
-import pandas as pd
-import numpy as np
-import tensorflow as tf
+# import pandas as pd
+# import numpy as np
+# import tensorflow as tf
 
 app = Flask(__name__, template_folder='templates')
-pipe = pickle.load(open('pipe.pkl', 'rb'))
+# pipe = pickle.load(open('pipe.pkl', 'rb'))
 
 
 @app.route('/')
