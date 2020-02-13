@@ -95,8 +95,7 @@ checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(
 
 
 
-tf.train.latest_checkpoint('ckpt_30.index')
-
+checkpoint_dir = './training_checkpoints'
 model = build_model(vocab_size, embedding_dim, rnn_units, batch_size=1)
 model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 model.build(tf.TensorShape([1, None]))
