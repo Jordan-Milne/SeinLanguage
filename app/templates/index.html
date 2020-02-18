@@ -10,11 +10,14 @@
     <body>
       <div class="bg"></div>
       <title>The App About Nothing</title>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Seinfeld_logo.svg/1200px-Seinfeld_logo.svg.png" width=30%>
-        <h1>The App About Nothing</h1>
+        <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Seinfeld_logo.svg/1200px-Seinfeld_logo.svg.png" alt="logo" align="middle" width=30%>
+        <font size="10"><i>The App About Nothing</i></font></h1>
         <section>
     <nav>
-      <h1>Create Your Own Episode and See Your Rating!</h1><br>
+      <h1><font size="6">Create Your Own Episode and See Your Rating!</font></h1>
+      <h3>
+        Choose the Amount of Lines for Each Character.
+      </h3><br>
   <form action = "/result" method="POST">
           <div class="slidecontainerjer">
             <p>
@@ -81,9 +84,14 @@
               outputela.innerHTML = this.value;
             }
           </script>
+          <div class='tight'>
+
+
+          <h3>Choose Character Sentiment.</h3>
             <p>
             <i>Sentiment is how positive or negetive the character is in the episode. (50 being very positive and -50 being very negative)</i>
             </p><br>
+            </div>
 
 
 
@@ -152,6 +160,7 @@
               outputela_sent.innerHTML = this.value;
             }
           </script>
+          <h3>Select the Locations for the Episode</h3>
 
           <input type="checkbox" name="locs" value="Monk’s Café">
           <label for="locs"> Monk’s Café</label>
@@ -203,7 +212,7 @@
     </nav>
 
     <article>
-      <h1>Generate Some lines for Jerry!</h1>
+      <h1><font size="6">Generate Some lines for Jerry!</font></h1>
            <form action = "/generate" method="POST">
              <p>Enter Start of Phrase: <input name="start_seed" type="text" value="What's the deal with" class="mytext" /></p>
              <p>Enter Length of Phrase (in characters): <input name="line_length" type="number" value="100" class="mytext" style="width: 75px;" /></p>
