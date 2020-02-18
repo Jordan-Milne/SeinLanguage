@@ -1,15 +1,24 @@
+h1 {font-family: 'Raleway', sans-serif;}
+h2 {font-family: 'Raleway', sans-serif;}
+p {font-family: 'Raleway', sans-serif;}
+
+
+.mytext {
+    height: 30px;
+}
 .slidecontainerjer {
   width: 100%;
+  height: 35px
 }
 
 .sliderjer {
   -webkit-appearance: none;
-  width: 10%;
+  width: 60%;
   height: 10px;
   border-radius: 1px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -29,32 +38,28 @@
 }
 
 .sliderjer::-moz-range-thumb {
-  width: 50px;
-  height: 40px;
+  width: 80px;
+  height: 70px;
   border: 0;
-  background: url(https://cdn.shopify.com/s/files/1/0094/8142/0858/products/Seinfeld_2400x.png?v=1572195311)no-repeat; background-size: 50%;
+  background: url(images/jerry.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
 
 
-
-
-
-
-
 .slidecontainergeo {
   width: 100%;
+  height: 35px;
 }
 
 .slidergeo {
   -webkit-appearance: none;
-  width: 10%;
+  width: 60%;
   height: 10px;
   border-radius: 1px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -74,10 +79,10 @@
 }
 
 .slidergeo::-moz-range-thumb {
-  width: 50px;
-  height: 40px;
+  width: 70px;
+  height: 60px;
   border: 0;
-  background: url(https://i.kym-cdn.com/photos/images/newsfeed/000/364/858/c49.png)no-repeat; background-size: 50%;
+  background: url(images/geo.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
@@ -88,16 +93,17 @@
 
 .slidecontainerkra {
   width: 100%;
+  height: 35px;
 }
 
 .sliderkra {
   -webkit-appearance: none;
-  width: 10%;
+  width: 60%;
   height: 10px;
   border-radius: 1px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -112,22 +118,17 @@
   width: 23px;
   height: 24px;
   border: 0;
-  background: url(images/geo.png);
+  background: url();
   cursor: pointer;
 }
 
 .sliderkra::-moz-range-thumb {
-  width: 50px;
-  height: 40px;
+  width: 80px;
+  height: 70px;
   border: 0;
-  background: url(https://spng.pngfly.com/20180428/fxq/kisspng-kramer-jerry-seinfeld-elaine-benes-george-costanza-5ae4e20802dc30.9924202615249495120117.jpg)no-repeat; background-size: 50%;
+  background: url(images/kramer.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
-
-
-
-
-
 
 
 
@@ -137,12 +138,12 @@
 
 .sliderela {
   -webkit-appearance: none;
-  width: 10%;
+  width: 60%;
   height: 10px;
   border-radius: 1px;
   background: #d3d3d3;
   outline: none;
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -162,8 +163,8 @@
 }
 
 .sliderela::-moz-range-thumb {
-  width: 50px;
-  height: 40px;
+  width: 70px;
+  height: 60px;
   border: 0;
   background: url(https://www.pngkey.com/png/full/879-8794059_saturday-read-4-how-do-you-fit-seinfeld.png)no-repeat; background-size: 50%;
   cursor: pointer;
@@ -174,4 +175,48 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 35%;
+  height: 830px;
+  background: rgba(185,187,255,0.3);
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 30%;
+  background: rgba(218,218,218,0.3);
+  height: 300px;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
 }

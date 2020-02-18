@@ -3,19 +3,18 @@
   <head>
     <title>The App About Nothing</title>
     <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
   </head>
 
   <div class="bg"></div>
     <h1>
-      <center>
           Jerry Says:
-      </center>
     </h1>
       <h2>
-      <p>
-        <center>
-        {{ prediction }}
-        </center>
+        <p style="text-align: left; width:49%; display: inline-block;">{{ prediction }}</p>
       </h2>
-    </p>
+      <form action="/">
+        <input type="submit" value="Home" />
+      </form>
+      <button onClick="window.location.reload();">Regenerate</button>
 </html>

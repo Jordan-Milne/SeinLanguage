@@ -13,27 +13,32 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 def index():
     return render_template('index.html')
 
+@app.route('/input')
+def input():
+    return render_template('gen_input.html')
+
 @app.route('/result', methods=['POST'])
 def result():
     args = request.form
     new = pd.DataFrame({
-        'jer_sent': [args.get('jer_sent')],
-        'geo_sent': [args.get('geo_sent')],
-        'kra_sent': [args.get('kra_sent')],
-        'ela_sent': [args.get('ela_sent')],
+        'jer_sent': [float(int(args.get('jer_sent'))/250)],
+        'geo_sent': [float(int(args.get('geo_sent'))/250)],
+        'kra_sent': [float(int(args.get('kra_sent'))/250)],
+        'ela_sent': [float(int(args.get('ela_sent'))/250)],
         'jer_lines': [args.get('jer_lines')],
         'geo_lines': [args.get('geo_lines')],
         'kra_lines': [args.get('kra_lines')],
         'ela_lines': [args.get('ela_lines')],
-        'location': ['Jerry’s Apartment']
+        'location': [args.get('locs')]
     })
     prediction = round(float(pipe.predict(new)[0]),1)
     return render_template('result.html', prediction=prediction)
 
-@app.route('/generate')
+@app.route('/generate', methods=['POST'])
 def generate():
+    args = request.form
     vocab = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ';', '<', '>', '?', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    char2idx = {u:i for i, u in enumerate(vocab)}
+    char_vect = {u:i for i, u in enumerate(vocab)}
     idx2char = np.array(vocab)
 
 
@@ -62,16 +67,16 @@ def generate():
       # Evaluation step (generating text using the learned model)
 
       # Number of characters to generate
-      num_generate = 150
+      num_generate = int(args.get('line_length'))
 
       # Converting start string to numbers
-      input_eval = [char2idx[s] for s in start_string]
+      input_eval = [char_vect[s] for s in start_string]
       input_eval = tf.expand_dims(input_eval, 0)
 
       text_generated = []
 
       # predictability
-      temperature = 0.1
+      temperature = 0.3
 
       # Here batch size == 1
       model.reset_states()
@@ -94,7 +99,7 @@ def generate():
       return (start_string + ''.join(text_generated))
 
 
-    genlines = str(generate_text(model,"What's the deal with"))
+    genlines = str(generate_text(model, args.get('start_seed')))
     return render_template('generate.html', prediction=genlines)
 
 if __name__ == '__main__':

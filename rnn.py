@@ -7,26 +7,26 @@ import time
 
 import pandas as pd
 
+################Turning the lines into vectors #########################
 df = pd.read_csv('data/scripts.csv')
-
+# Making a list of lists of every line jerry says
 jer = df[df['Character'] == 'JERRY']['Dialogue'].to_list()
-
-
-
+# Flattening every Jerry line into 1 large list
 jerry = ' '.join(jer)
 
+# Selecting the unique characters from every lines Jerry says
+characters_ = sorted(set(jerry))
 
-vocab = sorted(set(jerry))
+char_vec = {u:i for i, u in enumerate(characters_)}
+vec_char = np.array(characters_)
+text_id = np.array([char_vec[c] for c in jerry])
 
-char2idx = {u:i for i, u in enumerate(vocab)}
-idx2char = np.array(vocab)
-text_as_int = np.array([char2idx[c] for c in jerry])
-
+################Setting Parameters for the model#########################
 
 seq_length = 100
 examples_per_epoch = len(jerry)//(seq_length+1)
 
-char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int)
+char_dataset = tf.data.Dataset.from_tensor_slices(text_id)
 
 sequences = char_dataset.batch(seq_length+1, drop_remainder=True)
 
@@ -40,15 +40,15 @@ dataset = sequences.map(split_input_target)
 
 BATCH_SIZE = 64
 BUFFER_SIZE = 10000
-dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE, drop_remainder=True)
-vocab_size = len(vocab)
-
-# The embedding dimension
 embedding_dim = 256
-
-# Number of RNN units
 rnn_units = 1024
+vocab_size = len(characters_)
 
+dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE, drop_remainder=True)
+
+
+
+########## Building the model#################
 
 def build_model(vocab_size, embedding_dim, rnn_units, batch_size):
   model = tf.keras.Sequential([
@@ -57,39 +57,32 @@ def build_model(vocab_size, embedding_dim, rnn_units, batch_size):
     tf.keras.layers.LSTM(rnn_units,
                         return_sequences=True,
                         stateful=True,
-                        recurrent_initializer='glorot_uniform'),
+                        recurrent_initializer='orthogonal'),
     tf.keras.layers.Dense(vocab_size)
   ])
   return model
 
 model = build_model(
-  vocab_size = len(vocab),
+  vocab_size = len(characters_),
   embedding_dim=embedding_dim,
   rnn_units=rnn_units,
   batch_size=BATCH_SIZE)
 
-
-
+# setting the loss function
 def loss(labels, logits):
   return tf.keras.losses.sparse_categorical_crossentropy(labels, logits, from_logits=True)
 
-
-
 model.compile(optimizer='adam', loss=loss)
 
-# Directory where the checkpoints will be saved
-checkpoint_dir = './training_checkpoints'
-# Name of the checkpoint files
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
 
+####### making training checkpoints ########
+checkpoint_dir = './training_checkpoints'
+checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
 checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_prefix,
     save_weights_only=True)
 
-
-
-
-
+## Training the model
 # history = model.fit(dataset, epochs=30, callbacks=[checkpoint_callback])
 
 
@@ -102,21 +95,19 @@ model.build(tf.TensorShape([1, None]))
 model.summary()
 
 def generate_text(model, start_string):
-  # Evaluation step (generating text using the learned model)
 
-  # Number of characters to generate
+
+  # Lenth of Jerry's generated line
   num_generate = 150
 
-  # Converting start string to numbers
-  input_eval = [char2idx[s] for s in start_string]
+  # Vectorizing starting string
+  input_eval = [char_vec[s] for s in start_string]
   input_eval = tf.expand_dims(input_eval, 0)
-
   text_generated = []
 
-  # predictability
+  # Predictability
   temperature = 0.1
 
-  # Here batch size == 1
   model.reset_states()
 
   for i in range(num_generate):
@@ -128,11 +119,11 @@ def generate_text(model, start_string):
       predictions = predictions / temperature
       predicted_id = tf.random.categorical(predictions, num_samples=1)[-1,0].numpy()
 
-      # We pass the predicted character as the next input to the model
+      # Pass the predicted character as the next input to the model
       # along with the previous hidden state
       input_eval = tf.expand_dims([predicted_id], 0)
 
-      text_generated.append(idx2char[predicted_id])
+      text_generated.append(vec_char[predicted_id])
 
   return (start_string + ''.join(text_generated))
 
