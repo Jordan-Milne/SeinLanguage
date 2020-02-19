@@ -58,7 +58,7 @@ def generate():
 
 
     # tf.train.latest_checkpoint('ckpt_30.index')
-    checkpoint_dir = './training_checkpoints'
+    checkpoint_dir = 'colab_dr71'
     model = build_model(86, 256, 1024, batch_size=1)
     model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
     model.build(tf.TensorShape([1, None]))
@@ -103,5 +103,5 @@ def generate():
     return render_template('generate.html', prediction=genlines)
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
-    # app.run(host='0.0.0.0', debug=True, port=80)
+    # app.run(port=5000, debug=True)
+    app.run(host='0.0.0.0', debug=True, port=80)
