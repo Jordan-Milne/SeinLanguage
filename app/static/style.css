@@ -32,10 +32,10 @@ p {font-family: 'Raleway', sans-serif;}
 .sliderjer::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 23px;
-  height: 24px;
+  width: 80px;
+  height: 70px;
   border: 0;
-  background: url();
+  background: url(images/jerry.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
@@ -73,10 +73,10 @@ p {font-family: 'Raleway', sans-serif;}
 .slidergeo::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 23px;
-  height: 24px;
+  width: 70px;
+  height: 60px;
   border: 0;
-  background: url(images/geo.png);
+  background: url(images/geo.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
@@ -117,10 +117,10 @@ p {font-family: 'Raleway', sans-serif;}
 .sliderkra::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 23px;
-  height: 24px;
+  width: 80px;
+  height: 70px;
   border: 0;
-  background: url();
+  background: url(images/kramer.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
@@ -157,10 +157,10 @@ p {font-family: 'Raleway', sans-serif;}
 .sliderela::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 23px;
-  height: 24px;
+  width: 70px;
+  height: 60px;
   border: 0;
-  background: url(images/geo.png);
+  background: url(https://www.pngkey.com/png/full/879-8794059_saturday-read-4-how-do-you-fit-seinfeld.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
 
