@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700i&display=swap" rel="stylesheet">
+    <!-- Java script requirements -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <title>Helo</title>
+  </head>
+  <body>
+
+    <article>
+      <h1><font size="6">Generate Some lines for Jerry!</font></h1>
+           <form action = "/input" method="POST">
+             <p>Enter Start of Phrase: <input name="start_seed" type="text" value="What's the deal with" class="mytext" /></p>
+             <p>Enter Length of Phrase (in characters): <input name="line_length" type="number" value="100" class="mytext" style="width: 75px;" /></p>
+             <p><input type ="submit" value="Generate"/></p>
+           </form>
+    </article>
+
+    {% if predictions %}
+
+        <p><b>You It worked</b> <font color="black"></font></p>
+
+      {% endif %}
+  </body>
+</html>

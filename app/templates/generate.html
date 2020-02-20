@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
-    <title>The App About Nothing</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="static/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title></title>
   </head>
+  <body>
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="#home" class="w3-bar-item w3-button"><i>The App About Nothing</i></a>
+          <!-- Float links to the right. Hide them on small screens -->
+          <div class="w3-right w3-hide-small">
+            <a href="/" class="w3-bar-item w3-button">Home</a>
+            <a href="/result" class="w3-bar-item w3-button">Create Episode</a>
+            <a href="/generate" class="w3-bar-item w3-button">Generate Lines</a>
+    </div>
+  </div>
+</div>
+    <img src='https://i.ytimg.com/vi/MqLX01F2Z2s/maxresdefault.jpg' style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
 
-  <div class="bg"></div>
-    <h1>
-          Jerry Says:
-    </h1>
-      <h2>
-        <p style="text-align: left; width:49%; display: inline-block;">{{ prediction }}</p>
-      </h2>
-      <form action="/">
-        <input type="submit" value="Home" />
-      </form><br>
-      <button onClick="window.location.reload();">Regenerate</button>
+    <!-- <img alt="full screen background image" src="https://i2.wp.com/movieplus.news/wp-content/uploads/2020/01/5-Reasons-Why-Seinfeld-Is-Better-Than-Curb-Your-Enthusiam-5-Why-Its-Worse.jpg?w=1500&ssl=1" id="full-screen-background-image" />
+      <div id="wrapper"> -->
+      <div class="fixed2">
+        <header>
+          <h1><font size="6">Generate Some lines for Jerry!</font></h1>
+           <form action = "/generate" method="POST">
+             <p><b>Enter Start of Phrase: </b><input name="start_seed" type="text" value="What's the deal with" class="mytext" /></p>
+             <p><b>Enter Length of Phrase (in characters): </b><input name="line_length" type="number" value="100" class="mytext" style="width: 75px;" /></p>
+             <p><input type ="submit" value="Generate"/></p>
+           </form>
+           {% if genlines %}
+           <h3>Jerry Says:</h3>
+               <p>{{ genlines }}</p>
+           {% endif %}
+
+         </header>
+       </div>
+       <!-- </div> -->
+  </body>
 </html>

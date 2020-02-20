@@ -13,29 +13,33 @@ pipe = pickle.load(open('pipe.pkl', 'rb'))
 def index():
     return render_template('index.html')
 
-@app.route('/input')
-def input():
-    return render_template('gen_input.html')
 
-@app.route('/result', methods=['POST'])
+@app.route('/result', methods=['GET','POST'])
 def result():
-    args = request.form
-    new = pd.DataFrame({
-        'jer_sent': [float(int(args.get('jer_sent'))/250)],
-        'geo_sent': [float(int(args.get('geo_sent'))/250)],
-        'kra_sent': [float(int(args.get('kra_sent'))/250)],
-        'ela_sent': [float(int(args.get('ela_sent'))/250)],
-        'jer_lines': [args.get('jer_lines')],
-        'geo_lines': [args.get('geo_lines')],
-        'kra_lines': [args.get('kra_lines')],
-        'ela_lines': [args.get('ela_lines')],
-        'location': [args.get('locs')]
-    })
-    prediction = round(float(pipe.predict(new)[0]),1)
-    return render_template('result.html', prediction=prediction)
+    prediction = ''
+    if request.method == 'POST':
+        args = request.form
 
-@app.route('/generate', methods=['POST'])
+        new = pd.DataFrame({
+            'jer_sent': [args.get('jer_sent')],
+            'geo_sent': [args.get('geo_sent')],
+            'kra_sent': [args.get('kra_sent')],
+            'ela_sent': [args.get('ela_sent')],
+            'jer_lines': [args.get('jer_lines')],
+            'geo_lines': [args.get('geo_lines')],
+            'kra_lines': [args.get('kra_lines')],
+            'ela_lines': [args.get('ela_lines')],
+            'location': [args.get('locs')]
+        })
+
+        # prediction = type(args.get('jer_sent'))
+        prediction = round(float(pipe.predict(new)[0]),1)
+    return render_template('result.html',prediction=prediction)
+
+@app.route('/generate', methods=['GET', 'POST'])
 def generate():
+    genlines = ''
+
     args = request.form
     vocab = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ';', '<', '>', '?', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     char_vect = {u:i for i, u in enumerate(vocab)}
@@ -57,7 +61,7 @@ def generate():
 
 
 
-    # tf.train.latest_checkpoint('ckpt_30.index')
+
     checkpoint_dir = 'colab_dr71'
     model = build_model(86, 256, 1024, batch_size=1)
     model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
@@ -97,11 +101,11 @@ def generate():
           text_generated.append(idx2char[predicted_id])
 
       return (start_string + ''.join(text_generated))
+    if request.method == 'POST':
+        genlines = str(generate_text(model, args.get('start_seed')))
 
-
-    genlines = str(generate_text(model, args.get('start_seed')))
-    return render_template('generate.html', prediction=genlines)
+    return render_template('generate.html', genlines=genlines)
 
 if __name__ == '__main__':
-    # app.run(port=5000, debug=True)
-    app.run(host='0.0.0.0', debug=True, port=80)
+    app.run(port=5000, debug=True)
+    # app.run(host='0.0.0.0', debug=True, port=80)

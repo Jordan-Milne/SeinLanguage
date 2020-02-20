@@ -6,220 +6,42 @@
     <link rel="stylesheet" type="text/css" href="static/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:700i&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
     <body>
+      <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <a href="#home" class="w3-bar-item w3-button"><i>The App About Nothing</i></a>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+              <a href="/" class="w3-bar-item w3-button">Home</a>
+              <a href="/result" class="w3-bar-item w3-button">Create Episode</a>
+              <a href="/generate" class="w3-bar-item w3-button">Generate Lines</a>
+      </div>
+    </div>
+  </div>
+  <div class="fixed2">
+      <img src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F493%2Fthumb-1920-493640.jpg&f=1&nofb=1' style='position:fixed;top:20px;left:0px;width:100%;height:100%;z-index:-1;'>
       <div class="bg"></div>
       <title>The App About Nothing</title>
         <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Seinfeld_logo.svg/1200px-Seinfeld_logo.svg.png" alt="logo" align="middle" width=30%>
-        <font size="10"><i>The App About Nothing</i></font></h1>
+        <font size="10"><i>The App About Nothing</i></font>
+      </h1>
         <section>
-    <nav>
-      <h1><font size="6">Create Your Own Episode and See Your Rating!</font></h1>
-      <h3>
-        Choose the Amount of Lines for Each Character:
-      </h3><br>
-  <form action = "/result" method="POST">
-          <div class="slidecontainerjer">
-            <p>
-            <input name="jer_lines" type="range" min="0" max="250" value="86" class="sliderjer" id="myRangeJer">
-            Jerry Lines: <span id="demoJer"></span>
-            </p>
-          </div>
-
-          <div class="slidecontainergeo">
-            <p>
-            <input name="geo_lines" type="range" min="0" max="150" value="56" class="slidergeo" id="myRangeGeo">
-            George Lines: <span id="demoGeo"></span>
-            </p>
-          </div>
-
-
-          <div class="slidecontainerkra">
-            <p>
-            <input name="kra_lines" type="range" min="0" max="150" value="38" class="sliderkra" id="myRangeKra">
-            Kramer Lines: <span id="demoKra"></span>
-            </p>
-          </div>
-
-          <div class="slidecontainerela">
-            <p>
-            <input name="ela_lines" type="range" min="0" max="150" value="46" class="sliderela" id="myRangeela">
-            Elaine Lines: <span id="demoela"></span>
-            </p>
-          </div>
-
-          <script>
-            var sliderjer = document.getElementById("myRangeJer");
-            var outputjer = document.getElementById("demoJer");
-            outputjer.innerHTML = sliderjer.value;
-
-            sliderjer.oninput = function() {
-              outputjer.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var slidergeo = document.getElementById("myRangeGeo");
-            var outputgeo = document.getElementById("demoGeo");
-            outputgeo.innerHTML = slidergeo.value;
-
-            slidergeo.oninput = function() {
-              outputgeo.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var sliderkra = document.getElementById("myRangeKra");
-            var outputkra = document.getElementById("demoKra");
-            outputkra.innerHTML = sliderkra.value;
-
-            sliderkra.oninput = function() {
-              outputkra.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var sliderela = document.getElementById("myRangeela");
-            var outputela = document.getElementById("demoela");
-            outputela.innerHTML = sliderela.value;
-
-            sliderela.oninput = function() {
-              outputela.innerHTML = this.value;
-            }
-          </script>
-          <div class='tight'>
-
-
-          <h3>Choose Character Sentiment:</h3>
-            <p>
-            <i>Sentiment is how positive or negetive the character is in the episode. (50 being very positive and -50 being very negative)</i>
-            </p><br>
-            </div>
-
-
-
-          <div class="slidecontainerjer">
-            <p>
-            <input name="jer_sent" type="range" min="-50" max="50" value="0.042" class="sliderjer" id="myRangeJer_sent">
-            Jerry Sentiment: <span id="demoJer_sent"></span>
-            </p>
-          </div>
-
-          <div class="slidecontainergeo">
-            <p>
-            <input name="geo_sent" type="range" min="-50" max="50" value="0.049" class="slidergeo" id="myRangeGeo_sent">
-            George Sentiment: <span id="demoGeo_sent"></span>
-            </p>
-          </div>
-
-
-          <div class="slidecontainerkra">
-            <p>
-            <input name="kra_sent" type="range" min="-50" max="50" value="0.064" class="sliderkra" id="myRangeKra_sent">
-            Kramer Sentiment: <span id="demoKra_sent"></span>
-            </p>
-          </div>
-
-          <div class="slidecontainerela">
-            <p>
-            <input name="ela_sent" type="range" min="-50" max="50" value="0.049" class="sliderela" id="myRangeela_sent">
-            Elaine Sentiment: <span id="demoela_sent"></span>
-            </p>
-          </div>
-
-          <script>
-            var sliderjer_sent = document.getElementById("myRangeJer_sent");
-            var outputjer_sent = document.getElementById("demoJer_sent");
-            outputjer_sent.innerHTML = sliderjer_sent.value;
-
-            sliderjer_sent.oninput = function() {
-              outputjer_sent.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var slidergeo_sent = document.getElementById("myRangeGeo_sent");
-            var outputgeo_sent = document.getElementById("demoGeo_sent");
-            outputgeo_sent.innerHTML = slidergeo_sent.value;
-
-            slidergeo_sent.oninput = function() {
-              outputgeo_sent.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var sliderkra_sent = document.getElementById("myRangeKra_sent");
-            var outputkra_sent = document.getElementById("demoKra_sent");
-            outputkra_sent.innerHTML = sliderkra_sent.value;
-
-            sliderkra_sent.oninput = function() {
-              outputkra_sent.innerHTML = this.value;
-            }
-          </script>
-          <script>
-            var sliderela_sent = document.getElementById("myRangeela_sent");
-            var outputela_sent = document.getElementById("demoela_sent");
-            outputela_sent.innerHTML = sliderela_sent.value;
-
-            sliderela_sent.oninput = function() {
-              outputela_sent.innerHTML = this.value;
-            }
-          </script>
-          <h3>Select the Locations for the Episode:</h3>
-          <div class='rale'>
-
-
-            <input type="checkbox" name="locs" value="Monk’s Café">
-            <label for="locs"> Monk’s Café</label>
-
-            <input type="checkbox" name="locs" value="Jerry’s Apartment">
-            <label for="locs"> Jerry’s Apartment</label><br>
-
-            <input type="checkbox" name="locs" value="Elaine’s Apartment">
-            <label for="locs"> Elaine’s Apartment</label>
-
-            <input type="checkbox" name="locs" value="Kramer’s Apartment">
-            <label for="locs"> Kramer’s Apartment</label><br>
-
-            <input type="checkbox" name="locs" value="George’s Apartment">
-            <label for="locs"> George’s Apartment</label>
-
-            <input type="checkbox" name="locs" value="CALIFORNIA">
-            <label for="locs"> California</label><br>
-
-
-            <input type="checkbox" name="locs" value="Long Island">
-            <label for="locs"> Long Island</label>
-
-            <input type="checkbox" name="locs" value="Yankee Stadium">
-            <label for="locs"> Yankee Stadium</label><br>
-
-            <input type="checkbox" name="locs" value="Costanza House">
-            <label for="locs"> Costanza House</label>
-
-            <input type="checkbox" name="locs" value="J. Peterman">
-            <label for="locs"> J. Peterman's</label><br>
-
-            <input type="checkbox" name="locs" value="Central Park">
-            <label for="locs"> Central Park</label>
-
-            <input type="checkbox" name="locs" value="Pendant Publishing">
-            <label for="locs"> Pendant Publishing</label><br>
-
-            <input type="checkbox" name="locs" value="Newman’s Apartment">
-            <label for="locs"> Newman’s Apartment</label>
-
-            <input type="checkbox" name="locs" value="Del Boca Vista">
-            <label for="locs"> Del Boca Vista</label>
-          </div>
-          <p><input type ="submit" value="Submit"/></p>
-        </form>
-    </nav>
+    <aside height=50%>
+      <h1><font size="6">Click Here to Create Your Own Episode and See Your Rating!</font></h1>
+      <form>
+         <input type="button" onclick="window.location.href = '/result';" value="Create Episode"/>
+      </form>
+    </aside>
 
     <article>
-      <h1><font size="6">Generate Some lines for Jerry!</font></h1>
-           <form action = "/generate" method="POST">
-             <p>Enter Start of Phrase: <input name="start_seed" type="text" value="What's the deal with" class="mytext" /></p>
-             <p>Enter Length of Phrase (in characters): <input name="line_length" type="number" value="100" class="mytext" style="width: 75px;" /></p>
-             <p><input type ="submit" value="Generate"/></p>
-           </form>
+      <h1><font size="6">Click Here to Generate Some lines for Jerry!</font></h1>
+      <form>
+         <input type="button" onclick="window.location.href = '/generate';" value="Generate Text"/>
+      </form>
     </article>
   </section>
-
+</div>
     </body>
   </html>

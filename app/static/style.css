@@ -171,17 +171,11 @@ p {font-family: 'Raleway', sans-serif;}
   background: url(https://www.pngkey.com/png/full/879-8794059_saturday-read-4-how-do-you-fit-seinfeld.png)no-repeat; background-size: 50%;
   cursor: pointer;
 }
-html {
-  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages2.alphacoders.com%2F493%2Fthumb-1920-493640.jpg&f=1&nofb=1) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 
-* {
+
+/* * {
   box-sizing: border-box;
-}
+} */
 
 
 
@@ -189,9 +183,10 @@ html {
 nav {
   float: left;
   width: 35%;
-  height: 1030px;
+  height: 1070px;
   background: rgba(185,187,255,0.3);
   padding: 20px;
+
 }
 
 /* Style the list inside the menu */
@@ -205,7 +200,7 @@ article {
   padding: 20px;
   width: 30%;
   background: rgba(218,218,218,0.3);
-  height: 300px;
+  height: 200px;
 }
 
 /* Clear floats after the columns */
@@ -215,10 +210,65 @@ section:after {
   clear: both;
 }
 
+aside {
+  float: left;
+  width: 35%;
+  height: 200px;
+  background: rgba(185,187,255,0.3);
+  padding: 20px;
+}
+
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
     height: auto;
   }
+}
+/*
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#wrapper {
+  position: relative;
+  width: 800px;
+  min-height: 400px;
+  margin: 100px auto;
+  color: #333; */
+
+header {
+  float: right;
+  width: 35%;
+  height: 30px;
+  background: rgba(185,187,255,0);
+  padding: 20px;
+  color: white;
+}
+
+div.fixed {
+  position: relative;
+  top: 85px;
+  left: 30px;
+  width: 100%;
+}
+div.fixed2 {
+  position: relative;
+  top: 85px;
+  left: 0px;
+  width: 100%;
 }
