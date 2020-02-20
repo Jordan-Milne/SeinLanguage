@@ -80,7 +80,7 @@ def generate():
       text_generated = []
 
       # predictability
-      temperature = 0.1
+      temperature = int(args.get('temp'))/10
 
       # Here batch size == 1
       model.reset_states()
@@ -107,5 +107,5 @@ def generate():
     return render_template('generate.html', genlines=genlines)
 
 if __name__ == '__main__':
-    # app.run(port=5000, debug=True)
-    app.run(host='0.0.0.0', debug=True, port=80)
+    app.run(port=5000, debug=True)
+    # app.run(host='0.0.0.0', debug=True, port=80)
