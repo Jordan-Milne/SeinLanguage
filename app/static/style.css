@@ -202,6 +202,15 @@ article {
   background: rgba(218,218,218,0.3);
   height: 200px;
 }
+header {
+  background: rgba(0,0,0,0.3);
+  padding: 3px;
+  text-align: left;
+  font-size: 13px;
+  color: white;
+  width: 65%;
+  height: 110px;
+}
 
 /* Clear floats after the columns */
 section:after {
