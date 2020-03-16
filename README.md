@@ -1,2 +1,3 @@
-# The-App-About-Nothing
-Web app for Seinfeld enthusiasts! In this project I will use gradient boosting to predict episode ratings based on features such as character sentiment, number of lines per character, and episode locations. In addition I am creating a LSTM network to generate lines for each character (Jerry, George, Elaine, Kramer).
+# The-App-About-Nothing (www.theappaboutnothing.com)
+
+A web app for Seinfeld enthusiasts! In this project I used a gradient boosting regression model and intense feature engineering on the seinfeld episode scripts to predict episode ratings. Features in my model include character sentiment (using NLTK), number of lines per character, episode locations, etc. In addition I built and trained a LSTM neural network in TensorFlow to generate character lines for Jerry.
